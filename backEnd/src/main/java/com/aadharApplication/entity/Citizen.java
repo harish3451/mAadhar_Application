@@ -24,13 +24,10 @@ public class Citizen {
 	private String Email;
 	private String gender;
 	private String address;
-	@OneToOne
-	public AadharDetails aadhar;
 	
 	
-	public AadharDetails getAadhar() {
-		return aadhar;
-	}
+	
+	
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -67,6 +64,5 @@ public class Citizen {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 	
 }

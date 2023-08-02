@@ -24,4 +24,11 @@ public class CitizenService {
 	public void addCitizen(Citizen citizen) {
 		citizenRepo.save(citizen);
 	}
+	
+	public Citizen getDetails(int id) {
+		Citizen details = citizenRepo.findById(id).get();
+		return details;
+	}
+	
+	
 }
