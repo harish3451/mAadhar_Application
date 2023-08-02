@@ -25,7 +25,9 @@ public class Citizen {
 	private String gender;
 	private String address;
 	
-	
+	public int getId() {
+		return id;
+	}
 	
 	
 	public int getPhoneNumber() {

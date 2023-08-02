@@ -1,7 +1,7 @@
 package com.aadharApplication.entity;
 
 
-
+ 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -46,11 +46,5 @@ public class AadharDetails {
 	public void setCitizen(Citizen citizen) {
 		this.citizen = citizen;
 	}
-
-	@Override
-	public String toString() {
-		return "AadharDetails [id=" + id + ", UID=" + UID + ", status=" + status + ", citizen=" + citizen + "]";
-	}
-	
 	
 }
