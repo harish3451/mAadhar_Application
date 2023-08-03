@@ -11,7 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule} from '@angular/common/http';
-import { RegisterComponent } from './components/register/register.component'
+import { RegisterComponent } from './components/register/register.component';
+import { AdminLogInComponent } from './components/admin-log-in/admin-log-in.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { RegisterComponent } from './components/register/register.component'
     HomePageComponent,
     NewEnrollComponent,
     AdminHomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminLogInComponent
   ],
   imports: [
     BrowserModule,

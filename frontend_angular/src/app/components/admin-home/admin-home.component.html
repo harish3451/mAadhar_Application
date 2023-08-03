@@ -1,1 +1,53 @@
-<p>admin-home works!</p>
+<style>
+    td{
+        padding: 5px;
+    }
+</style>
+<div>
+    <div class="row bg-primary m-0" style="height: 15vh;">
+        <div class="col-3 p-3 ps-5"><img src="/assets/images/aadhar.png" alt="" style="width: 30%;"/></div>
+        <div class="col-7 p-3"><h1 class="p-3 text-white">mAadhar Portal</h1></div>
+        <div class="col-2 p-3"><button class="p-3 btn btn-secondary" (click)="logout()">LogOut</button></div>
+   </div>
+    <div class="container bg-info ">
+        <h1 >Pending request</h1>
+        <table style=" width: 50%; border: 1px solid black; border-collapse: collapse;" class="p-3" >
+        
+            <thead style="border: 1px solid rgb(110, 110, 110);border-bottom: 1px solid rgb(110, 110, 110); height: 50px;">
+                <th>citizen Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </thead>
+            <tr *ngFor="let user of aadhar" style="text-align: center;">
+                    
+                    <td *ngIf="(user.status == 'Applied') || (user.status == 'delete')">{{user.citizen.id}}</td>
+                    <td *ngIf="(user.status == 'Applied') || (user.status == 'delete')">{{user.citizen.name}}</td>
+                    <td *ngIf="(user.status == 'Applied') || (user.status == 'delete')">{{user.citizen.phoneNumber}}</td>
+                    <td *ngIf="(user.status == 'Applied')"><button class="btn btn-primary" (click)="issue(user)">Issue</button></td>
+                    <td *ngIf="(user.status == 'Delete')"><button class="btn btn-danger" (click)="delete(user)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <h1>All Issued Aadhar cards</h1>
+        <table style=" width: 50%; border: 1px solid black;" class="p-3">
+        
+            <thead style="border-top: 1px solid rgb(110, 110, 110);border-bottom: 1px solid rgb(110, 110, 110); height: 50px;">
+                <th>citizen Id</th>
+                <th>UID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </thead>
+            <tr *ngFor="let user of aadhar">
+                    <td *ngIf="user.status != 'Applied'">{{user.citizen.id}}</td>
+                    <td *ngIf="user.status != 'Applied'">{{user.uid}}</td>
+                    <td *ngIf="user.status != 'Applied'">{{user.citizen.name}}</td>
+                    <td *ngIf="user.status != 'Applied'">{{user.citizen.phoneNumber}}</td>
+                    <td *ngIf="user.status != 'Applied'">{{user.status}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

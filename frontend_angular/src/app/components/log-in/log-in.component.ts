@@ -27,6 +27,7 @@ export class LogInComponent {
       Response => this.LoginDetails = Response,
       (error:any) => {console.log(error),this.invalidUser=true}
     );
+    
     if(this.password == this.LoginDetails.phoneNumber){
 
         if(this.citizenservice.newcitizen == undefined){
@@ -43,5 +44,9 @@ export class LogInComponent {
 
   register(){
     this.router.navigate(['/register'])
+  }
+
+  adminLogin(){
+    this.router.navigate(['/admin'])
   }
 }

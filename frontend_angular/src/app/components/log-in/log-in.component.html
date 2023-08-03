@@ -1,5 +1,5 @@
 
-<div class="container-fliud bg-info" style="height: 100vh;" *ngIf="!loggedIn">
+<div class="container-fliud " style="height: 100vh;" *ngIf="!loggedIn">
 
         <div class="card shadow-lg  mb-5 rounded" style="width: 40%; left: 30%; top: 25vh;">
             <div class="card-header ">
@@ -26,7 +26,7 @@
                 </form>
             </div>
             <div class="card-footer">
-                <button class="btn btn-info">Admin logIn</button>
+                <button class="btn btn-info" (click)="adminLogin()">Admin logIn</button>
             </div>
         </div>
 </div>

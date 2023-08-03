@@ -1,26 +1,40 @@
-<div class="container-fliud">
+<div class="container-fliud" >
    <div class="row bg-primary m-0" style="height: 15vh;">
         <div class="col-3 p-3 ps-5"><img src="/assets/images/aadhar.png" alt="" style="width: 30%;"/></div>
         <div class="col-3 p-3"><h1 class="p-3 text-white">mAadhar Portal</h1></div>
+        <div class="col-2 p-3"><button class="p-3 btn btn-secondary" (click)="logout()">LogOut</button></div>
    </div>
-   <div class="bg-info w-100 m-0" style="height: 85vh">
-        <div *ngIf="!newUser">
+   <div class=" w-100 m-0" style="height: 85vh">
+        <div *ngIf="!newUser" >
             <div>
-                <h1>Welcome! {{citizen.name}}</h1><br><br>
-                <p>aadhar status <span class="badge bg-success">{{aadhar.status}}</span></p>
-                <div class="card col-3">
-                    <p><b>aadhar Number: </b> {{aadhar.uid}}</p>
-                    <p><b>citizen Id: </b> {{citizen.id}}</p>
-                    <p><b>Name </b> {{citizen.name}}</p>
-                    <p><b>Date Of Birth </b> {{citizen.dateOfBirth}}</p>
-                    <p><b>Phone number </b> {{citizen.phoneNumber}}</p>
-                    <p><b>Email </b> {{citizen.email}}</p>
-                    <p><b>Address </b> {{citizen.address}}</p>
-                </div>
+                <h1 class=" p-3">Welcome! {{citizen.name}}</h1><br><br>
+
+                <div class="card shadow-lg col-3 ms-5">
+                    <p class="card-header">aadhar status <span class="badge" [style.backgroundColor]="background">{{aadhar.status}}</span></p>
+                   <div class="card-body">
+
+                       <p *ngIf="applied" style="color: green;">Your aadhar Card Has been applied <br>Wait for two day to verify details</p>
+                       <p  *ngIf="!applied" ><b>aadhar Number: </b> {{aadhar.uid}}</p>
+                       
+                       <p><b>citizen Id: </b> {{citizen.id}}</p>
+                       <p><b>Name </b> {{citizen.name}}</p>
+                       <p><b>Date Of Birth </b> {{citizen.dateOfBirth}}</p>
+                       <p><b>Phone number </b> {{citizen.phoneNumber}}</p>
+                       <p><b>Email </b> {{citizen.email}}</p>
+                       <p><b>Address </b> {{citizen.address}}</p>
+                    </div>
+                    <div class="card-footer bg-white" *ngIf="aadhar.status == 'Issued'">
+                        <button class="btn btn-warning" >Update</button> 
+                        <button class="btn btn-danger ms-5">Delete</button>
+                    </div>
+                    </div>
             </div>
         </div>
         <div *ngIf="newUser">
-            
+            <div>
+                <h1>Welcome! {{newEnroll.name}}</h1><br><br>
+                <p class="link-primary" (click)="applyAadhar()" style="color: blue;">Apply For Aadhar Card</p>
+            </div>
         </div>
    </div>
 </div>

@@ -1,0 +1,32 @@
+
+<div class="container-fliud " style="height: 100vh;" *ngIf="!loggedIn">
+
+    <div class="card shadow-lg  mb-5 rounded" style="width: 40%; left: 30%; top: 25vh;">
+        <div class="card-header ">
+           <h1> welcome to mAadhar Portal</h1>
+        </div>
+        <div class="card-body">
+            
+            <h3>Admin LogIn</h3>
+            <hr>
+            <form  #logIn="ngForm" id="ngForm" (ngSubmit)="login()"> 
+                <div class="form-group">
+                    <label for="userid" class="form-label">LogIn id</label>
+                    <input type="text" class="form-control" name="userid" required [(ngModel)]="adminId"> 
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" required [(ngModel)]="password" >
+                    <span style="color: red;" *ngIf="invalidUser">Invalid email or password</span>
+                </div><br>
+                <input type="submit" value="LogIn" class="btn btn-success" [disabled]="logIn.invalid"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+            </form>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-info" (click)="userLogin()">user logIn</button>
+        </div>
+    </div> 
+</div>
+
+<router-outlet *ngIf="loggedIn"></router-outlet>

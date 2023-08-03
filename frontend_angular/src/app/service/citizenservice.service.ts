@@ -11,7 +11,7 @@ export class CitizenService {
   constructor(private http:HttpClient) { }
 
   CitizenUrl:string ="http://localhost:8060/citizen";
-  adharUrl:string="http://localhost:8060/aadhar"
+  adharUrl:string="http://localhost:8060/aadhar";
 
   newcitizen !:Citizen;
   loggedIn !:Citizen;
@@ -35,5 +35,9 @@ export class CitizenService {
 
   getaadhar(id:number){
     return this.http.get<Aadhar>(this.adharUrl+`/${id}`);
+  }
+
+  applyAadhar(id:number,adharDetails:Aadhar){
+    return this.http.post<Aadhar>(this.adharUrl+`/Adhar${id}`,adharDetails)
   }
 } 
