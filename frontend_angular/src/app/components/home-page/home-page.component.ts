@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CitizenService } from 'src/app/service/citizenservice.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  newUser :boolean= false;
+  constructor(private citizenservice:CitizenService){}
 
+  ngOnInit(){
+    
+  }
 }

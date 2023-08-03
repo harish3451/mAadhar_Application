@@ -6,6 +6,9 @@
                <h1> welcome to mAadhar Portal</h1>
             </div>
             <div class="card-body">
+                <div class="alert alert-success" *ngIf="newUser">
+                    <p>Login With userId {{userid}} and mobile number as password</p>
+                </div>
                 <h3>LogIn</h3>
                 <hr>
                 <form  #logIn="ngForm" id="ngForm" (ngSubmit)="login()"> 
@@ -18,8 +21,8 @@
                         <input type="password" class="form-control" name="password" required [(ngModel)]="password" >
                         <span style="color: red;" *ngIf="invalidUser">Invalid UserId or password</span>
                     </div><br>
-                    <input type="submit" value="Submit" class="btn btn-success" [disabled]="logIn.invalid"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a routerLink="register" class="text-decoration-none">Click here to Register</a>
+                    <input type="submit" value="LogIn" class="btn btn-success" [disabled]="logIn.invalid"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a routerLink="register" class="text-decoration-none" >Click here to Register</a>
                 </form>
             </div>
             <div class="card-footer">

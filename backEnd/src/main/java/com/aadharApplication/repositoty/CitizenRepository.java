@@ -7,5 +7,5 @@ import com.aadharApplication.entity.Citizen;
 
 @Repository
 public interface CitizenRepository extends JpaRepository<Citizen, Integer>{
-
+	
 }

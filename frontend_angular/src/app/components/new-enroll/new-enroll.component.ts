@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-enroll.component.css']
 })
 export class NewEnrollComponent {
-
+  
 }

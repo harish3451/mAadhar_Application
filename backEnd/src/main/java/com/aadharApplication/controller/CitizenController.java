@@ -30,16 +30,18 @@ public class CitizenController {
 	CitizenService citizenService;
 	
 	@GetMapping(path="/all", produces = "application/json")
-	public ResponseEntity<List<Citizen>> allUsers() {
+	public ResponseEntity<List<Citizen>> allUsers() {	
 		return citizenService.getAllUser();
 	}
 	
 	@PostMapping(path = "/addUser", consumes = "application/json", produces = "application/json")
-	public ResponseEntity<List<Citizen>> NewCitizen(
+	public ResponseEntity<Citizen> NewCitizen(
 			@RequestBody Citizen citizen) {
 		
+			
 		citizenService.addCitizen(citizen);
-		return citizenService.getAllUser();
+		
+		return new ResponseEntity<Citizen>(citizenService.getDetails(citizen.getId()),HttpStatusCode.valueOf(200));
 	}
 	
 	@GetMapping(path="/{id}", produces = "application/json")

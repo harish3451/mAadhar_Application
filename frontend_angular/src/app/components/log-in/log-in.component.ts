@@ -10,13 +10,17 @@ import { CitizenService } from 'src/app/service/citizenservice.service';
 })
 export class LogInComponent {
   LoginDetails!: Citizen;
-  userid:number =0;
-  password:number=0;
-  loggedIn:boolean=false;
+  userid !:number ;
+  password !:number;
+  loggedIn:boolean=true;
   invalidUser:boolean= false;
+  newUser:boolean = false;
   constructor(private citizenservice:CitizenService, private router:Router){}
   ngOnInit(){
-    
+    if(this.citizenservice.citizen != null){
+      this.newUser = true;
+      this.userid = this.citizenservice.citizen.id;
+    }
   }
   login(){
     this.citizenservice.getCitizenById(this.userid).subscribe(
@@ -32,5 +36,9 @@ export class LogInComponent {
       this.invalidUser =true;
       this.router.navigate(['/']);
     }
+  }
+
+  register(){
+    this.router.navigate(['/register'])
   }
 }

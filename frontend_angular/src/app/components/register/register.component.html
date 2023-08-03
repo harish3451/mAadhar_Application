@@ -1,32 +1,38 @@
 <div class="container-fliud">
     <div class="container border border-dark p-3 mt-2" style="width: 50%; left: 25%;">
         <form  #register="ngForm" (ngSubmit)="Enroll()">
+            <div class="alert alert-info" *ngIf="dublicate">
+                <span>Mobile Number is already register</span>
+                <p><a routerLink="">Click here </a>To login</p>
+            </div>
             <h3>Registration form</h3>
             <div class="form-group col-6">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name"><br>
+                <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name"><br>
             </div>
             <div class="form-group">
                 <label for="Gender" class="form-label">Gender</label><br>
-                <input type="radio" id="Gender" value="Male">Male &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" id="Gender" value="Female">Female &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" id="Gender" value="Others">Others  
+                <input type="radio" id="Gender" value="Male" [(ngModel)]="gender" name="gender">Male &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="Gender" value="Female" [(ngModel)]="gender" name="gender">Female &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="Gender" value="Others" [(ngModel)]="gender" name="gender">Others  
             </div><br>
+            
             <div class="form-group">
                 <label for="dob" class="form-label">Date Of Birth</label>
-                <input type="date" id="dob" class="form-control" style="width: auto;" >
+                <input type="date" id="dob" class="form-control" style="width: auto;" [(ngModel)]="dob" name='dob'>
             </div><br>
+             
             <div class="form-group col-6 ">
-                <label for="mobileNumber" class="form-label">Mobile Number</label>
-                <input type="number" id="mobileNumber" class="form-control" >
+                <label for="phone" class="form-label">Mobile Number</label> 
+                <input type="number" id="phone" name="phone" class="form-control" [(ngModel)]="phone">
             </div>
             <div class="form-group col-6">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" class="form-control">
+                <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email">
             </div>
             <div class="form-group" >
                 <label for="address" class="form-label">Address</label>
-                <textarea name="" id="address" cols="30" rows="5" class="form-control"></textarea>
+                <textarea name="address" id="address" cols="30" rows="5" class="form-control" [(ngModel)]="address"></textarea>
             </div><br>
             <input type="submit" value="Register" class="btn btn-primary">
         </form>

@@ -13,11 +13,11 @@ import jakarta.persistence.OneToOne;
 public class Citizen {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private int id;
 	
 	@Column(name="phone_number", unique = true)
-	private int phoneNumber;
+	private long phoneNumber;
 	
 	private String name;
 	private Date dateOfBirth;
@@ -30,10 +30,10 @@ public class Citizen {
 	}
 	
 	
-	public int getPhoneNumber() {
+	public long getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getName() {

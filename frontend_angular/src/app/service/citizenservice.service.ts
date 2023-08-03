@@ -11,10 +11,17 @@ export class CitizenService {
 
   CitizenUrl:string ="http://localhost:8060/citizen";
 
-  
+  citizen !:Citizen;
 
   getCitizenById(id:number){
     return this.http.get<Citizen>(this.CitizenUrl+`/${id}`);
   }
 
+  enrollCitizen(citizen:Citizen){
+    return this.http.post<Citizen>(this.CitizenUrl+'/addUser',citizen);
+  }
+
+  setCitizen(citizen:Citizen):void{
+    this.citizen = citizen;
+  }
 } 
