@@ -16,6 +16,10 @@ public class AadharDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	public int getId() {
+		return id;
+	}
+
 	@Column(unique = true)
 	private int UID;
 	private String status;

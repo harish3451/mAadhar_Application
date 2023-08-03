@@ -8,33 +8,33 @@
             <h3>Registration form</h3>
             <div class="form-group col-6">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name"><br>
+                <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name" required><br>
             </div>
             <div class="form-group">
                 <label for="Gender" class="form-label">Gender</label><br>
-                <input type="radio" id="Gender" value="Male" [(ngModel)]="gender" name="gender">Male &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" id="Gender" value="Female" [(ngModel)]="gender" name="gender">Female &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" id="Gender" value="Others" [(ngModel)]="gender" name="gender">Others  
+                <input type="radio" id="Gender" value="Male" [(ngModel)]="gender" name="gender" required>Male &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="Gender" value="Female" [(ngModel)]="gender" name="gender" required>Female &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="Gender" value="Others" [(ngModel)]="gender" name="gender" required>Others  
             </div><br>
             
             <div class="form-group">
                 <label for="dob" class="form-label">Date Of Birth</label>
-                <input type="date" id="dob" class="form-control" style="width: auto;" [(ngModel)]="dob" name='dob'>
+                <input type="date" id="dob" class="form-control" style="width: auto;" [(ngModel)]="dob" name='dob' required>
             </div><br>
              
             <div class="form-group col-6 ">
                 <label for="phone" class="form-label">Mobile Number</label> 
-                <input type="number" id="phone" name="phone" class="form-control" [(ngModel)]="phone">
+                <input type="number" id="phone" name="phone" class="form-control" [(ngModel)]="phone" required>
             </div>
             <div class="form-group col-6">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email">
+                <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" required>
             </div>
             <div class="form-group" >
                 <label for="address" class="form-label">Address</label>
-                <textarea name="address" id="address" cols="30" rows="5" class="form-control" [(ngModel)]="address"></textarea>
+                <textarea name="address" id="address" cols="30" rows="5" class="form-control" [(ngModel)]="address" required></textarea>
             </div><br>
-            <input type="submit" value="Register" class="btn btn-primary">
+            <input type="submit" value="Register" class="btn btn-primary" [disabled]="register.invalid">
         </form>
     </div>
 </div>

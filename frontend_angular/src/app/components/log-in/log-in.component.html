@@ -31,4 +31,4 @@
         </div>
 </div>
 
-<router-outlet *ngIf="loggedIn"></router-outlet>
+<router-outlet *ngIf="loggedIn" (logOut)="logout($event)" ></router-outlet>

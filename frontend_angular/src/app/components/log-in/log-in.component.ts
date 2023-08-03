@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Citizen } from 'src/app/class/log-in';
 import { CitizenService } from 'src/app/service/citizenservice.service';
@@ -27,7 +27,7 @@ export class LogInComponent {
       Response => this.LoginDetails = Response,
       (error:any) => {console.log(error),this.invalidUser=true}
     );
-    
+
     if(this.password == this.LoginDetails.phoneNumber){
 
         if(this.citizenservice.newcitizen == undefined){
@@ -40,6 +40,10 @@ export class LogInComponent {
       this.invalidUser =true;
       this.router.navigate(['/']);
     }
+  }
+
+  logout(event:Event){
+    console.log(event);
   }
 
   register(){

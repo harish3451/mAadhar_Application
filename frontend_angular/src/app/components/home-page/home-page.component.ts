@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Aadhar } from 'src/app/class/aadhar';
 import { Citizen } from 'src/app/class/log-in';
+import { AdminService } from 'src/app/service/admin.service';
 import { CitizenService } from 'src/app/service/citizenservice.service';
 
 @Component({
@@ -13,11 +14,12 @@ export class HomePageComponent {
   newUser :boolean= false;
   citizen !:Citizen;
   newEnroll !:Citizen;
-  constructor(private citizenservice:CitizenService, private router:Router){}
+  constructor(private citizenservice:CitizenService,private aadharService:AdminService, private router:Router){}
   aadhar!:Aadhar;
   uid :number=0;
   applied:boolean = false;
   background:string='';
+
   ngOnInit(){
     this.citizen = this.citizenservice.loggedIn;
     console.log(this.citizen.id);
@@ -62,7 +64,16 @@ export class HomePageComponent {
 
   }
 
+  delete(){
+    this.aadhar.status = "Delete";
+    this.aadharService.issueAadhar(this.aadhar.id,this.aadhar).subscribe(
+      Response=> console.log("Addhar deleted"),
+      error => console.log(error)
+    );
+  }
+
+
   logout(){
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   }
 }
