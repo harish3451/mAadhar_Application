@@ -9,4 +9,5 @@ import com.aadharApplication.entity.Citizen;
 @Repository
 public interface AadharRepository extends JpaRepository<AadharDetails, Integer>{
 	 AadharDetails findByUID(int uid);
+	 AadharDetails findByCitizenId(int cid);
 }

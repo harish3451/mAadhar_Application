@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Citizen } from '../class/log-in';
+import { Citizen} from '../class/log-in';
+import { Aadhar } from '../class/aadhar';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,11 @@ export class CitizenService {
   constructor(private http:HttpClient) { }
 
   CitizenUrl:string ="http://localhost:8060/citizen";
+  adharUrl:string="http://localhost:8060/aadhar"
 
-  citizen !:Citizen;
+  newcitizen !:Citizen;
+  loggedIn !:Citizen;
+  aadharDetails !: Aadhar;
 
   getCitizenById(id:number){
     return this.http.get<Citizen>(this.CitizenUrl+`/${id}`);
@@ -22,6 +26,14 @@ export class CitizenService {
   }
 
   setCitizen(citizen:Citizen):void{
-    this.citizen = citizen;
+    this.newcitizen = citizen;
+  }
+
+  loginCitizen(citizen:Citizen):void{
+    this.loggedIn = citizen;
+  }
+
+  getaadhar(id:number){
+    return this.http.get<Aadhar>(this.adharUrl+`/${id}`);
   }
 } 

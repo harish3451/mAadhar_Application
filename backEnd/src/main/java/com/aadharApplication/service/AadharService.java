@@ -32,4 +32,10 @@ public class AadharService {
 	public AadharDetails getAdharById(int id){
 		return aadharRepo.findById(id).get();
 	}
+	
+	public AadharDetails getAdharByCId(int id){
+		return aadharRepo.findByCitizenId(id);
+	}
+	
+	
 }

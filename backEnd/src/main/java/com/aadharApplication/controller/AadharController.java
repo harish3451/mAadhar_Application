@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import com.aadharApplication.service.CitizenService;
 
 @RestController
 @RequestMapping("/aadhar")
+@CrossOrigin("http://localhost:4200")
 public class AadharController {
 	
 	@Autowired
@@ -32,6 +34,13 @@ public class AadharController {
 	@GetMapping(path="/all")
 	public ResponseEntity<List<AadharDetails>> allAadhar(){
 		return aadharservice.getAadhar();
+	}
+	
+	@GetMapping(path="/{id}")
+	public ResponseEntity<AadharDetails> getAdhar(@PathVariable("id") int id){
+		
+		return new ResponseEntity<AadharDetails>(aadharservice.getAdharByCId(id),HttpStatusCode.valueOf(200));
+		
 	}
 	
 	@PostMapping(path="/Adhar{id}")

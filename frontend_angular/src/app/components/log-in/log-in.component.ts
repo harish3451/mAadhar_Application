@@ -12,14 +12,14 @@ export class LogInComponent {
   LoginDetails!: Citizen;
   userid !:number ;
   password !:number;
-  loggedIn:boolean=true;
+  loggedIn:boolean=false;
   invalidUser:boolean= false;
   newUser:boolean = false;
   constructor(private citizenservice:CitizenService, private router:Router){}
   ngOnInit(){
-    if(this.citizenservice.citizen != null){
+    if(this.citizenservice.newcitizen != null){
       this.newUser = true;
-      this.userid = this.citizenservice.citizen.id;
+      this.userid = this.citizenservice.newcitizen.id;
     }
   }
   login(){
@@ -29,6 +29,9 @@ export class LogInComponent {
     );
     if(this.password == this.LoginDetails.phoneNumber){
 
+        if(this.citizenservice.newcitizen == undefined){
+          this.citizenservice.loginCitizen(this.LoginDetails)
+        }
         this.router.navigate(['/home']);
         this.loggedIn= !this.loggedIn
     }
