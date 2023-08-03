@@ -15,8 +15,8 @@ import org.testng.annotations.BeforeClass;
 public class citizenTest {
 	
 	WebDriver driver ;
-	
-//  @Test(priority = 1)
+
+	@Test(priority = 1)
   public void RegistrationTest() throws InterruptedException {
 	  Thread.sleep(3000);
 	  WebElement register = driver.findElement(By.xpath("/html/body/app-root/log-in/div/div/div[2]/form/a"));
@@ -29,7 +29,7 @@ public class citizenTest {
 	  	  gender.click();
 	  	  
 	  	  WebElement mobile = driver.findElement(By.xpath("/html/body/app-root/app-register/div/div/form/div[4]/input"));
-	  	  mobile.sendKeys("9876543210");
+	  	  mobile.sendKeys("9876540010");
 	  	  
 	  	  WebElement mail = driver.findElement(By.xpath("/html/body/app-root/app-register/div/div/form/div[5]/input"));
 	  	  mail.sendKeys("harish@gmail.com");
@@ -56,15 +56,9 @@ public class citizenTest {
 	   WebElement submit = driver.findElement(By.xpath("/html/body/app-root/log-in/div/div/div[2]/form/input"));
 	   
 	   submit.click();
-	   Thread.sleep(3000);
+	   Thread.sleep(5000);
    }
    
-   
-   @Test(priority = 3)
-   public void logout() {
-	   WebElement logout = driver.findElement(By.xpath("/html/body/app-root/log-in/app-home-page/div/div[1]/div[3]/button"));
-	   	logout.click();
-   }
   @BeforeClass
   public void beforeSuite() {	
 	  driver = new ChromeDriver();

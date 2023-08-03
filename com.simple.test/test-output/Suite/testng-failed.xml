@@ -5,7 +5,7 @@
     <classes>
       <class name="test.citizenTest">
         <methods>
-          <include name="RegistrationTest"/>
+          <include name="logout"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
         </methods>
